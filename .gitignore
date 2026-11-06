@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.log
+.probe/
+_probe-*.cjs
+_qa-*.cjs
+node_modules/
+.vscode/
+.idea/

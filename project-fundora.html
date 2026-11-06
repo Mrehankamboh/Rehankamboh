@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fundora — Muhammad Rehan Kamboh</title>
+    <meta
+      name="description"
+      content="Fundora — prop-trading marketing site, trader portal, and Neon-backed API by Muhammad Rehan Kamboh."
+    />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="is-loading">
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor__dot" aria-hidden="true"></div>
+    <div class="boot" aria-hidden="true">
+      <div class="boot__inner">
+        <img class="boot__mark" src="assets/logo.svg" alt="" width="44" height="44" />
+        <div class="boot__bar"><span></span></div>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a class="brand" href="index.html" aria-label="Rehan home">
+          <img src="assets/logo.svg" alt="" width="28" height="28" />
+          Rehan
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="work.html" aria-current="page">Work</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="about.html">About</a>
+        </nav>
+        <div class="nav__actions">
+          <a class="btn btn--ghost btn--sm" href="mailto:work.rehankamboh@gamil.com">Email</a>
+          <a class="btn btn--primary btn--sm btn--magnetic" href="contact.html">Contact</a>
+          <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+        </div>
+      </div>
+    </header>
+    <div class="nav__mobile">
+      <a href="work.html">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="about.html">About</a>
+      <a class="btn btn--primary" href="contact.html">Contact</a>
+    </div>
+
+    <main>
+      <section class="case-hero">
+        <div class="container reveal">
+          <span class="section__label">Case study</span>
+          <h1 class="section__title">Fundora — trade with institutional discipline</h1>
+          <p class="section__lead">
+            Prop-trading marketing site and trader portal. Static HTML/CSS/JS with a Node API and Neon Postgres for auth,
+            challenges, rewards, pricing, and support.
+          </p>
+        </div>
+        <div class="case-hero__media reveal">
+          <img src="assets/projects/fundora-hero.png?v=3" alt="Fundora marketing hero" width="1024" height="582" />
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="case-meta reveal">
+          <div><span>Role</span><strong>Full-stack</strong></div>
+          <div><span>Stack</span><strong>HTML, CSS, JS, Node, Neon</strong></div>
+          <div><span>Focus</span><strong>Landing + portal + API</strong></div>
+          <div><span>Related</span><strong>fundora-admin (Next.js)</strong></div>
+        </div>
+
+        <div class="case-body">
+          <div class="reveal"><h2>Overview</h2></div>
+          <div class="reveal reveal-delay-1">
+            <p>
+              Fundora is a classical prop evaluation brand: clear rules, measured risk, and capital when traders earn it.
+              The public site sells 1-Step and 2-Step challenges (capital up to $200K, 80% reward split, MT5 &amp; cTrader).
+            </p>
+            <p>
+              Behind the marketing layer sits a full trader portal and JSON API — register/login (email + Google OAuth),
+              challenge purchase, live prices from Neon, rewards requests, and a floating support chat that writes tickets
+              to the same database as the admin app.
+            </p>
+          </div>
+        </div>
+
+        <div class="case-body">
+          <div class="reveal"><h2>What’s included</h2></div>
+          <div class="reveal reveal-delay-1">
+            <ol class="case-steps">
+              <li>
+                <span>[001]</span>
+                <h3>Marketing landing</h3>
+                <p>
+                  Hero with interactive globe, challenge planner (prices from <code>/api/prices</code>), platforms, FAQ,
+                  CTA, and load curtain. Auth pages: login, register, forgot password.
+                </p>
+              </li>
+              <li>
+                <span>[002]</span>
+                <h3>Trader portal</h3>
+                <p>
+                  Session-guarded shell with dashboard, challenges, rewards, platforms, rules, billing, certificates,
+                  support, account, and settings. Challenge checkout activates plans after payment.
+                </p>
+              </li>
+              <li>
+                <span>[003]</span>
+                <h3>Backend API</h3>
+                <p>
+                  Node <code>server.cjs</code> serves static files and JSON routes: auth, profile, challenges, rewards,
+                  tickets, health. Schema migrates on first use — users, sessions, challenge_prices, tickets, and more.
+                </p>
+              </li>
+              <li>
+                <span>[004]</span>
+                <h3>Admin companion</h3>
+                <p>
+                  Separate Next.js app (<strong>fundora-admin</strong>) shares the same Neon database — operators manage
+                  support calls and admin users against the live Fundora data.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="case-body">
+          <div class="reveal"><h2>Product highlights</h2></div>
+          <div class="reveal reveal-delay-1">
+            <ol class="case-steps">
+              <li>
+                <span>[001]</span>
+                <h3>1-Step &amp; 2-Step challenges</h3>
+                <p>Faster single evaluation or classic two-phase path. Account sizes and fees load live from Neon.</p>
+              </li>
+              <li>
+                <span>[002]</span>
+                <h3>Auth that ships</h3>
+                <p>Email/password with bcrypt sessions, Gmail SMTP for welcome/reset mail, and Google OAuth for one-tap login.</p>
+              </li>
+              <li>
+                <span>[003]</span>
+                <h3>Support widget</h3>
+                <p>Floating chat on the marketing site writes tickets and messages to Neon — visible in the admin Call inbox.</p>
+              </li>
+              <li>
+                <span>[004]</span>
+                <h3>Brand system</h3>
+                <p>
+                  Dark institutional look — Cormorant + DM Sans, Fundora mark, trading photography, and motion that stays
+                  calm rather than loud.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="case-gallery">
+          <div class="case-gallery__wide reveal">
+            <img src="assets/projects/trading-desk.jpg" alt="Fundora desk atmosphere" />
+          </div>
+          <div class="case-gallery__pair">
+            <div class="reveal">
+              <img src="assets/projects/trading-chart.jpg" alt="Fundora chart visual" />
+            </div>
+            <div class="reveal reveal-delay-1">
+              <img src="assets/projects/logo-fundora.jpg" alt="Fundora logo" style="object-fit: contain; background: #0a0a0c; padding: 18%" />
+            </div>
+          </div>
+        </div>
+
+        <div class="case-body">
+          <div class="reveal"><h2>Stack</h2></div>
+          <div class="reveal reveal-delay-1">
+            <p>
+              HTML, CSS, and vanilla JS on the front. Node server for static + API. Neon Postgres via
+              <code>@neondatabase/serverless</code>. Sessions with bcryptjs. Mail via nodemailer. Admin UI in Next.js
+              (separate repo, same database).
+            </p>
+          </div>
+        </div>
+
+        <div class="next-project reveal">
+          <div>
+            <span>Next project</span>
+            <a href="project-shinta.html">Shinta →</a>
+          </div>
+          <a class="btn btn--ghost" href="work.html">All work</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="28" height="28" />Rehan</a>
+        <div class="footer__links">
+          <a href="work.html">Work</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="footer__copy">© <span data-year>2026</span> Muhammad Rehan Kamboh</p>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
