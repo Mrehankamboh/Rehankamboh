@@ -234,6 +234,60 @@
     });
   }
 
+  /* Toolkit marquee: even copies, always wider than the row (no empty right gap) */
+  const fillToolkitTracks = () => {
+    document.querySelectorAll("[data-tk-track]").forEach((track) => {
+      const row = track.closest(".tk-row");
+      if (!row) return;
+
+      let base = track._tkBase;
+      if (!base) {
+        base = [...track.children]
+          .filter((el) => !el.hasAttribute("aria-hidden"))
+          .map((el) => el.cloneNode(true));
+        if (!base.length) {
+          base = [...track.children].map((el) => {
+            const c = el.cloneNode(true);
+            c.removeAttribute("aria-hidden");
+            return c;
+          });
+        }
+        track._tkBase = base;
+      }
+      if (!base.length) return;
+
+      track.replaceChildren();
+      let sets = 0;
+      const appendSet = (hidden) => {
+        base.forEach((el) => {
+          const clone = el.cloneNode(true);
+          if (hidden) clone.setAttribute("aria-hidden", "true");
+          else clone.removeAttribute("aria-hidden");
+          track.appendChild(clone);
+        });
+        sets += 1;
+      };
+
+      appendSet(false);
+      appendSet(true);
+      while (track.scrollWidth < row.clientWidth * 2.15 && sets < 10) {
+        appendSet(true);
+        appendSet(true); // keep even set count for translateX(-50%)
+      }
+    });
+  };
+
+  fillToolkitTracks();
+  let tkResizeTimer = 0;
+  window.addEventListener(
+    "resize",
+    () => {
+      window.clearTimeout(tkResizeTimer);
+      tkResizeTimer = window.setTimeout(fillToolkitTracks, 120);
+    },
+    { passive: true }
+  );
+
   /* Platform-style ticker: auto marquee + vertical-scroll linked offset */
   const megaTrack = document.querySelector("[data-mega-track]");
   if (megaTrack && !reduceMotion) {

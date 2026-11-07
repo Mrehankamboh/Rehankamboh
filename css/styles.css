@@ -681,6 +681,126 @@ body.is-ready .hero__line .word > span {
   transform: none;
 }
 
+/* —— Tools toolkit (Shakaib-style dual marquee) —— */
+.tools-section {
+  padding: clamp(56px, 9vh, 96px) 0;
+  border-top: 1px solid var(--line);
+  background: #0a0a0b;
+}
+
+.tools-section__head {
+  margin-bottom: 28px;
+}
+
+.tools-section__head .section__title {
+  max-width: 18ch;
+}
+
+.tools-section__head .section__title span {
+  color: var(--accent);
+}
+
+.tk {
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.tk-row {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+}
+
+.tk-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: tk-slide 48s linear infinite;
+  will-change: transform;
+}
+
+.tk-row.rev .tk-track {
+  animation-duration: 62s;
+  animation-direction: reverse;
+}
+
+.tk-row:hover .tk-track {
+  animation-play-state: paused;
+}
+
+.tool {
+  flex: 0 0 auto;
+  width: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 6px;
+  border-radius: 14px;
+  cursor: default;
+  transition: background-color 0.3s var(--ease);
+}
+
+.tool:hover {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.tool-ic {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--c);
+  transition: scale 0.35s var(--ease);
+}
+
+.tool:hover .tool-ic {
+  scale: 1.12;
+}
+
+.tool-ic svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.tool-nm {
+  text-align: center;
+  max-width: 100%;
+  font-family: var(--font-display);
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+@keyframes tk-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .tool {
+    width: 92px;
+    gap: 8px;
+    padding: 10px 4px;
+  }
+
+  .tool-ic svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tool-nm {
+    font-size: 0.66rem;
+  }
+}
+
 /* —— Sections —— */
 .section {
   padding: clamp(72px, 12vh, 120px) 0;
@@ -2655,6 +2775,24 @@ main {
   .footer-ring__dot,
   .footer-bento__stars {
     animation: none !important;
+  }
+
+  .tk-track {
+    animation: none !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    transform: none !important;
+  }
+
+  .tk-track .tool[aria-hidden="true"] {
+    display: none;
+  }
+
+  .tk-row {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow: visible;
   }
 
   [data-footer-reveal],
