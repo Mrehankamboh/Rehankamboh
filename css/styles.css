@@ -3139,3 +3139,16 @@ html[data-theme="light"] .footer-top:hover,
 html[data-theme="light"] .footer__links a:hover {
   color: #4a5a0e;
 }
+
+html[data-theme="light"] .contact-band__mail,
+html[data-theme="light"] .contact-hero__mail {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: #1a1714;
+}
+
+html[data-theme="light"] .footer-mega__name,
+html[data-theme="light"] .footer-link__fill {
+  color: #f3f1ec;
+}
