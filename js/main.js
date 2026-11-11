@@ -31,6 +31,26 @@
     }, 880);
   }
 
+  const themeBtn = document.querySelector(".theme-toggle");
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (themeBtn) {
+      themeBtn.setAttribute("aria-label", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
+    }
+    try {
+      localStorage.setItem("vera-theme", theme);
+    } catch (err) {
+      /* private mode */
+    }
+  };
+  if (themeBtn) {
+    applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
+    themeBtn.addEventListener("click", () => {
+      const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      applyTheme(next);
+    });
+  }
+
   const progress = document.querySelector(".scroll-progress span");
   const nav = document.querySelector(".nav");
 
